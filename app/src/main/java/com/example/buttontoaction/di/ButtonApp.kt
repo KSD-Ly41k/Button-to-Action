@@ -1,7 +1,6 @@
-package com.example.buttontoaction
+package com.example.buttontoaction.di
 
 import android.app.Application
-import com.example.buttontoaction.di.DaggerAppComponent
 
 class ButtonApp : Application() {
     private val appComponent = DaggerAppComponent.create()

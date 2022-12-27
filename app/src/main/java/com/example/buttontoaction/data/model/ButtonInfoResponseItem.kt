@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ButtonInfoResponseItem(
-    @SerialName("cool_down") val coolDown: Int?,
+    @SerialName("cool_down") val coolDown: Long?,
     @SerialName("enabled") val enabled: Boolean?,
     @SerialName("priority") val priority: Int?,
     @SerialName("type") val type: String?,
