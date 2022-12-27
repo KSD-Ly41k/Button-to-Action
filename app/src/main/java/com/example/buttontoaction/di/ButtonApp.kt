@@ -3,7 +3,7 @@ package com.example.buttontoaction.di
 import android.app.Application
 
 class ButtonApp : Application() {
-    companion object{
+    companion object {
         lateinit var appComponent: AppComponent
     }
 
@@ -11,6 +11,4 @@ class ButtonApp : Application() {
         super.onCreate()
         appComponent = DaggerAppComponent.builder().build()
     }
-
-
 }

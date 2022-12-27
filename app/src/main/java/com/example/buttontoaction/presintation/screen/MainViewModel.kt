@@ -3,7 +3,6 @@ package com.example.buttontoaction.presintation.screen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.buttontoaction.domain.ButtonInteractor
-import com.example.buttontoaction.domain.model.ButtonType
 import com.example.buttontoaction.helpers.Event
 import com.example.buttontoaction.presintation.model.ButtonInfoItemModel
 import kotlinx.coroutines.Dispatchers
@@ -14,23 +13,20 @@ import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 class MainViewModel @Inject constructor(
-    private val buttonInteractor: ButtonInteractor
+    buttonInteractor: ButtonInteractor
 ) : ViewModel() {
 
     private val defaultContext: CoroutineContext = Dispatchers.Default
     fun onButtonClicked() {
         // TODO Need to add save start time in _buttonCoolDownState
         _onButtonClicked.tryEmit(Unit)
-
     }
-
 
     private val _onButtonClicked = MutableSharedFlow<Unit>(
         extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
 
     private val _buttonCoolDownState = MutableStateFlow<Map<String, String>>(emptyMap())
-
 
     private val _buttonInfoFlow: Flow<List<ButtonInfoItemModel>> = buttonInteractor.getButtonInfo()
         .catch {
@@ -53,8 +49,4 @@ class MainViewModel @Inject constructor(
             started = Eagerly,
             initialValue = null
         )
-
-
 }
-
-

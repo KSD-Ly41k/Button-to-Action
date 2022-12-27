@@ -12,7 +12,3 @@ fun ButtonInfoItem.toButtonInfoItemModel(): ButtonInfoItemModel {
         validDays = validDays
     )
 }
-
-fun List<ButtonInfoItemModel>.totmtp(){
-
-}

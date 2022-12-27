@@ -34,12 +34,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        viewBinding.button.setOnClickListener { viewModel.onButtonClicked(
-
-        ) }
+        viewBinding.button.setOnClickListener {
+            viewModel.onButtonClicked()
+        }
     }
 
-    private fun processButtonInfo(event: Event<ButtonInfoItemModel>) {
+    private fun processButtonInfo(event: Event<ButtonInfoItemModel?>) {
         /// TODO checking type in ButtonInfoItemModel
     }
 
