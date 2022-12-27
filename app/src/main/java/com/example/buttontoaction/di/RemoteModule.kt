@@ -34,6 +34,7 @@ class RemoteModule {
     fun getRetrofitInstance(okHttpClient: OkHttpClient, json: Json): Retrofit {
         val contentType = CONTENT_TYPE_APPLICATION_JSON.toMediaType()
         return Retrofit.Builder()
+            .baseUrl("https://google.com/")
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -50,5 +51,6 @@ class RemoteModule {
     }
 
     @ExperimentalSerializationApi
+    @Provides
     fun getButtonApi(retrofit: Retrofit): ButtonApi = retrofit.create(ButtonApi::class.java)
 }

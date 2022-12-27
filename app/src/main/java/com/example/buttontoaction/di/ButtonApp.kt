@@ -3,5 +3,14 @@ package com.example.buttontoaction.di
 import android.app.Application
 
 class ButtonApp : Application() {
-    private val appComponent = DaggerAppComponent.create()
+    companion object{
+        lateinit var appComponent: AppComponent
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        appComponent = DaggerAppComponent.builder().build()
+    }
+
+
 }
